@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 
@@ -12,7 +12,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/cloudy.png",
+      iconUrl: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
     });
@@ -40,40 +40,8 @@ export default function Weather(props) {
             </div>
           </div>
         </form>
-        <div className="city">
-          <h1>{weatherData.city}</h1>
-          <ul>
-            <li>
-              <FormattedDate date={weatherData.date} />
-            </li>
-          </ul>
-        </div>
-        <div className="row">
-          <div className="col-6">
-            <ul>
-              <li className="text-capitalize">{weatherData.description}</li>
-            </ul>
-            <div className="clearfix">
-              <img
-                src={weatherData.iconUrl}
-                alt={weatherData.description}
-                className="float-left"
-              />
-              <div className="float-left">
-                <span className="temperature">
-                  {Math.round(weatherData.temperature)}
-                </span>
-                <span className="unit">°C</span>
-              </div>
-            </div>
-          </div>
-          <div className="col-6">
-            <ul>
-              <li>Humidity: {weatherData.humidity}%</li>
-              <li>Wind: {weatherData.wind} km/h</li>
-            </ul>
-          </div>
-        </div>
+
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
