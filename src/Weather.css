@@ -40,7 +40,7 @@
 .Weather .temperature {
   font-weight: bold;
   color: rgb(33, 33, 33);
-  font-size: 50px;
+  font-size: 30px;
   line-height: 64px;
   font-weight: 400;
 }
@@ -51,5 +51,5 @@
   font-weight: 400px;
   line-height: 1;
   position: relative;
-  top: -22px;
+  top: -10px;
 }

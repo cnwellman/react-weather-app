@@ -17,9 +17,9 @@ export default function WeatherInfo(props) {
           <ul>
             <li className="text-capitalize">{props.data.description}</li>
           </ul>
-          <div className="clearfix">
+          <div className="clearfix d-flex align-items-center">
             <img
-              src={props.data.iconUrl}
+              src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
               alt={props.data.description}
               className="float-left"
             />
